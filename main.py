@@ -34,14 +34,14 @@ while game_is_on:
 
     # Detect collision with wall
     if sam.head.xcor() > 280 or sam.head.xcor() < -280 or sam.head.ycor() > 280 or sam.head.ycor() < -280:
-        game_is_on = False
-        scoreboard.game_over()
+        scoreboard.reset()
+        sam.reset()
 
     # Detect collision of tail
     for segment in sam.segments[1:]:
         if sam.head.distance(segment) < 10:
-            game_is_on = False
-            scoreboard.game_over()
+            scoreboard.reset()
+            sam.reset()
 
 
 screen.exitonclick()
